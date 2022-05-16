@@ -1,0 +1,103 @@
+.wrapper{
+  position: relative;
+  max-width: 93%;
+  padding-inline: 20px;
+} 
+.wrapper:hover > .output{
+  visibility: visible;
+}
+.output{
+  display: inline-block;
+  font-size: 12px;
+  position: relative;
+  visibility: hidden;
+  margin-bottom: -10px;
+  color: var(--muted-text);
+}
+/* .outBar{
+  background: var(--light-blue);
+  height: 3px;
+  width: 92%;
+}
+.innerBar{
+  background: var(--dark-blue);
+  height: 100%;
+  position: absolute;
+}
+.thumb{
+  background: inherit;
+  right: 0;
+  border-radius: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+} */
+
+.playbackPath{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--dark-blue);
+  position: relative;
+  margin-top: 10px;
+  bottom: 0%;
+  left: 5.5%;
+  height: 3px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: visible;
+}
+.playbackPath:focus{
+    outline: none;
+}
+.playbackPath::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+  .playbackPath::-moz-range-thumb {
+    border: none;
+  }
+  .playbackPath::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--dark-blue);
+    cursor: pointer;
+    margin-top: -3px;
+  }
+  .playbackPath::-webkit-slider-thumb:hover {
+    background-color: var(--light-blue);
+  }
+
+  .playbackPath::-moz-range-thumb {
+    -webkit-appearance: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--dark-blue);
+    cursor: pointer;
+    margin-top: -4px;
+  }
+  .playbackPath::-ms-thumb {
+    -webkit-appearance: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--dark-blue);
+    cursor: pointer;
+    margin-top: -4px;
+  }
+  .playbackPath::-webkit-slider-runnable-track {
+    width: 0%;
+    height: 100%;
+    background: var(--light-blue);
+  }
+  .playbackPath::-moz-range-track {
+    width: 0%;
+    height: 100%;
+    background: var(--light-blue);
+  }
+  .playbackPath::-ms-track {
+    width: 0%;
+    height: 100%;
+    background: var(--light-blue);
+  }

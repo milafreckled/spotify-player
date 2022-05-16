@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+.trackBoxInner{
+    padding-bottom: 10px;
+    display: flex;
+    width: 100%;
+}
+.bottom{
+    border-bottom: 1px solid var(--muted-grey);
+}
+.divider{
+    display: inline-block;
+    height: 1px;
+    width: 92%;
+    background-color: var(--muted-grey);
+    position: relative;
+    bottom: 0%;
+    left: 7%;
+}
+.trackBox{
+    display: flex;
+    padding: 10px 30px;
+}
+.tracksContainer{
+    overflow-y: scroll;
+    position: relative;
+    margin-bottom: 16%;
+    z-index: 1;
+}
+.trackBox:after{
+    background-color:#EEEEEE;
+    height: 1px;
+    width: 85%;
+    position: absolute;
+    top: 20%;
+    transform: rotate(180deg);
+}
+.playBlueBtn{
+    background-image: url(../images/play-blue.png);   
+}
+.pauseBlueBtn{
+    background-image: url(../images/pause-blue.png);   
+}
+.pauseBlueBtn, .playBlueBtn{
+    width: 22px;
+    height: 22px;
+    justify-self: center;
+    background-repeat: no-repeat;
+    margin-right: 20px;
+}
+.muted{
+    color: var(--muted-text);
+}
+.trackName{
+    flex: 70%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 1px;
+}
+.trackDuration{
+    justify-self: flex-end;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.75px;
+    flex: 5%;
+}
+.detailsBtn{
+    background-image: url(../images/details.png);
+    width: 15.1px;
+    height: 4.17px;
+    align-self: center;
+}
+.nowPlayingText{
+    text-transform: capitalize;
+    margin: 10px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 1px;
+    color: var(--main-text);
+}
+.playlistBox{
+    display: flex;
+    padding: 20px;
+}
+.playlistBox > div{
+    flex: 0 0 90%;
+}
+.tracksContainer, .playlistBox{
+    margin-inline: 15%;
+}
+.playlistText{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.75px;
+    color: var(--muted-text);
+    text-transform: uppercase;
+}
+.playlistName{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.88px;
+    color: var(--main-text);
+}
+.dropdownBtn{
+    background-image: url(../images/dropdown.png);
+    justify-self: flex-end;
+    width: 24px;
+    height: 24px;
+    flex: 1%;
+}
+.closed{
+    transform: rotate(180deg) translateX(calc(100% - 24px));
+}
+/* PLAYER PART */
+.playerBlue{
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 2;
+    height: 82px;
+    background: var(--dark-blue);
+    padding: 10px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 18%;
+    text-align: center;
+    align-items: center;
+}
+.activeTrackImg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 55px;
+}
+.white{
+    color: var(--white-text);
+}
+.activeTrackData{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    overflow-y: hidden;
+    line-height: 1.25;
+    letter-spacing: 0.396px;
+    margin-top: 25px;
+    transform: translate(-45px, -50%);
+}
+.controls{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-self: center;
+}
+.playWhiteBtn, .pauseWhiteBtn{
+    width: 25px;
+    height: 25px;
+}
+.playWhiteBtn{
+    background-image: url(../images/play-white.png);
+}
+.pauseWhiteBtn{
+    background-image: url(../images/pause-white.png);
+}
+.playPrevBtn{
+    background-image: url(../images/play-prev.png);
+}
+.playNextBtn{
+    background-image: url(../images/play-next.png);
+}
+.playPrevBtn, .playNextBtn{
+    align-self: center;
+    width: 17px;
+    height: 17px;
+}
+
+@media (max-width: 780px){
+    .nowPlayingText{
+        font-size: 16px;
+    }
+    .playerBlue{
+      border-radius: 24px 24px 0px 0px;
+    }
+    .tracksContainer, .playlistBox{
+      margin: 0;
+  }
+  .playerBlue{
+    flex-direction: row;
+    height: fit-content;
+  }
+  .activeTrackData{
+    font-size: 12px;
+    text-align: left;
+  }
+  .controls{
+    position: absolute;
+    right: 4%;
+  }
+  .divider{
+      width: 100%;
+  }
+  }

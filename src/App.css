@@ -1,0 +1,39 @@
+:root{
+  --dark-blue: #3C7AC7;
+  --light-blue: #9FCAFF;
+  --muted-grey: #C6C6CA;
+  --muted-text: #77838F;
+  --main-text: #1E2022;
+  --white-text: #ffffff;
+}
+body, *{
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+button{
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+hr{
+  background-color: var(--muted-grey);
+}
+.loginBtn{
+  width: 200px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 100px);
+  border-radius: 10px;
+  background: var(--dark-blue);
+}
+.loginBtn > a{
+  color: var(--white-text);
+}
+a{
+  text-decoration: none;
+}

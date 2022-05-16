@@ -1,0 +1,80 @@
+.nowPlayingText{
+    margin: 10px 0 20px 0;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 1px;
+    color: var(--main-text);
+}
+.trackImg{
+    height: 295px;
+    width: 295px;
+    border-radius: 50%;
+    position: relative;
+    left: 50%;
+    margin-block: 4%;
+    transform: translateX(-50%);
+}
+.trackName{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 1px;
+    color: var(--main-text);
+}
+.trackArtist{
+    font-style: normal;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 1px;
+    color: #77838F;
+}
+.trackDuration{
+    text-align: right;
+    font-size: 12px;
+    margin-right: 9%;
+    color: var(--muted-text);
+}
+.controls{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 50px 0 40px;
+    width: 100%;
+}
+.replayBtn, .playPrevBtn, .playNextBtn, .shuffleBtn{
+    width: 20px;
+    height: 20px;
+}
+.replayBtn{
+    background-image: url(../images/replay-blue.png);
+    margin-right: 8%;
+}
+.playPrevBtn{
+    background-image: url(../images/play-prev-blue.png);
+}
+.playNextBtn{
+    background-image: url(../images/play-next-blue.png);
+}
+.playBlueBtn, .pauseBlueBtn{
+    width: 40px;
+    height: 40px;
+    margin-inline: 5%;
+}
+.playBlueBtn{
+    background-image: url(../images/play-blue2.png);
+}
+.pauseBlueBtn{
+    background-image: url(../images/pause-blue2.png);
+}
+.shuffleBtn{
+    background-image: url(../images/shuffle-blue.png);
+    margin-left: 8%;
+    width: 24px;
+}
