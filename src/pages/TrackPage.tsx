@@ -12,6 +12,7 @@ export default function TrackPage() {
   const activeTrack = useSelector((state: PlayerState) => state.playingTrack);
   const audio = useSelector((state: PlayerState) => state.audio);
   const playing = useSelector((state: PlayerState) => state.playing);
+  const [loading, setLoading] = useState(false);
   const [replay, setReplay] = useState(false);
   const token = window.sessionStorage.getItem("token");
   const trackId = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
@@ -21,6 +22,7 @@ export default function TrackPage() {
 
   const fetchTrackData  = async() => {
     let url = `${API_URL}/tracks/${trackId}`
+    setLoading(true);
     await fetch(url, {
         headers: {
           "Content-Type": "application/json",
@@ -31,30 +33,30 @@ export default function TrackPage() {
       .then(data => {
         dispatch({type: SET_TRACK, playingTrack: data});
       })
+      setLoading(false);
   }
 
 useEffect(() => {
   fetchTrackData();
 }, [])
 
-useEffect(() => {
-  if (audio.src !== undefined) audio.pause();
-}, [window.location]);
 
 useEffect(() => {
   if (audio.src !== undefined) audio.pause();
   history.push(`/track/${activeTrack?.id}`);
-}, [activeTrack, audio]);
+}, [activeTrack, audio, window.location]);
+
 
 useEffect(() => { 
-  if (audio.src !== undefined){
+  if (playing && loading) dispatch({type: TOGGLE_PLAYING});
+  if (audio.src !== undefined && !loading){
     if (playing){
       audio.play();
     }else{
       audio.pause();
     }
   }
-}, [playing, audio]);
+}, [playing, audio, loading]);
 
 const handlePrev = () => {
   if (audio.src !== undefined) audio.pause();

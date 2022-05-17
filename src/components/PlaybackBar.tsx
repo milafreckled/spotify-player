@@ -31,7 +31,7 @@ const PlaybackBar: React.FC<{audio: HTMLAudioElement, replay?: boolean, setRepla
   return (
    <div className={styles.wrapper}>
         <p className={styles.output} style={{left: `${(playbackWidth/audio.duration) * 100}%`}}>{msConverter(audio.currentTime).join(':')}</p>
-        <input className={styles.playbackPath} type="range" min="0" max={audio ? audio.duration : 30} value={playbackWidth}/>
+        <input className={styles.playbackPath} type="range" min="0" max={audio ? audio.duration : 30} value={playbackWidth} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPlaybackWidth(Number((e.target as HTMLInputElement).value))}/>
     </div> 
      
   )
