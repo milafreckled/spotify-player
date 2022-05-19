@@ -1,5 +1,13 @@
-.nowPlayingText{
+.header{
+    position: fixed;
+    left: 50%;
+    top: 0%;
+    width: 100%;
+    transform: translateX(-50%);
     margin: 10px 0 20px 0;
+}
+.nowPlayingText{
+    margin-bottom: 10px;
     font-style: normal;
     font-weight: 600;
     font-size: 24px;

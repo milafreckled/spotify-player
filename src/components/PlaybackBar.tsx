@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { msConverter } from "../utils"
 import styles from './PlaybackBar.module.css'
+import { PLAY_NEXT} from '../redux/actions'
+import { useDispatch } from 'react-redux'
 
 const PlaybackBar: React.FC<{audio: HTMLAudioElement, replay?: boolean, setReplay?:  React.Dispatch<React.SetStateAction<boolean>>}> = ({audio, replay, setReplay}) => {
-
+    const dispatch = useDispatch();
     const [playbackWidth, setPlaybackWidth] = useState(audio.currentTime);
     useEffect(() => { 
       if (replay){
@@ -21,12 +23,9 @@ const PlaybackBar: React.FC<{audio: HTMLAudioElement, replay?: boolean, setRepla
       return () => clearInterval(interval);
     }, [audio.paused, audio.currentTime, audio])
 
-  useEffect(() => {
-    if (audio.ended){
-      setPlaybackWidth(0); 
-      audio.currentTime = 0;
-    }
-  }, [audio.ended]);
+  audio.onended = () => {
+      dispatch({type: PLAY_NEXT});
+  }
 
   return (
    <div className={styles.wrapper}>

@@ -1,9 +1,8 @@
 import React, { useState, useEffect} from 'react'
-import { Image, Track, TrackItem } from '../types/externalTypes'
-import { SET_TRACK, SET_PLAYLIST, SET_AUDIO, PLAY_PREV, PLAY_NEXT , TOGGLE_PLAYING} from '../redux/actions'
+import { Track, TrackItem } from '../types/externalTypes'
+import { SET_TRACK, SET_PLAYLIST, PLAY_PREV, PLAY_NEXT , TOGGLE_PLAYING} from '../redux/actions'
 import { useSelector, useDispatch } from 'react-redux'
 import styles from './PlaylistPage.module.css'
-import { useHistory, Link } from 'react-router-dom'
 import { msConverter } from '../utils'
 import { PlayerState } from '../types/externalTypes'
 import PlaybackBar from '../components/PlaybackBar'
@@ -15,13 +14,12 @@ export default function PlaylistPage() {
     const playing = useSelector((state: PlayerState) => state.playing);
     const tracks = useSelector((state: PlayerState) => state.listOfTracks);
     const token = window.sessionStorage.getItem("token");
-    const userId = process.env.REACT_APP_SPOTIFY_USER_ID || '31xrwg4j4x2epoksnrzu6xikqh7a';
+    const userId = '31xrwg4j4x2epoksnrzu6xikqh7a';
     const API_URL = process.env.REACT_APP_API_URL || 'https://api.spotify.com/v1';
     const audio = useSelector((state: PlayerState) => state.audio);
     const [open, setOpen] = useState(true);
     const [playlistName, setPlaylistName] = useState('');
     const previewDuration = 30;
-    const history = useHistory();
 
 useEffect(() => {
     fetchPlaylistData();
@@ -42,11 +40,12 @@ useEffect(() => {
 }, [playing, audio]);
 
 
-useEffect(() => {
-    if (audio.ended){
-        dispatch({type: PLAY_NEXT})
-    }
-}, [audio.ended]);
+// useEffect(() => {
+//     if (audio.ended){
+//         console.log("audio has ended");
+//         dispatch({type: PLAY_NEXT})
+//     }
+// }, [audio.ended]);
 
 const handlePrev = () => {  
     audio.pause();
@@ -58,11 +57,6 @@ const handleNext = () => {
     dispatch({type: PLAY_NEXT})
 }
 
-const handleTrackClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, track: Track ) => {
-    e.preventDefault();
-    if (playing) dispatch({type: TOGGLE_PLAYING});
-    history.push(`/track/${track?.id}`);
-};
 
 const playTrack = (track: Track) => {
     audio.pause();

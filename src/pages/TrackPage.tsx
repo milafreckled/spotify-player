@@ -44,7 +44,7 @@ useEffect(() => {
 useEffect(() => {
   if (audio.src !== undefined) audio.pause();
   history.push(`/track/${activeTrack?.id}`);
-}, [activeTrack, audio, window.location]);
+}, [activeTrack, audio]);
 
 
 useEffect(() => { 
@@ -72,8 +72,10 @@ const handleReplay = () => {
 }
   return (
    audio && audio.src !== undefined ?  <div>
+     <div className={styles.header}>
       <h3 className={styles.nowPlayingText}>Now Playing</h3>
       <hr />
+      </div>
       <img className={styles.trackImg} src={`${activeTrack?.album?.images[0].url}`} alt="album cover" />
       <p className={styles.trackName}>{activeTrack?.name}</p>
       <p className={styles.trackArtist}> {activeTrack?.album?.artists[0].name}</p>
