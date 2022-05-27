@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory} from 'react-router-dom'
 
 // 	https://api.spotify.com/v1/playlists/{playlist_id}/tracks - endpoint for tracks

@@ -7,6 +7,15 @@ type Album = {
     artists: Artist[];
     images: Image[];
 }
+export type RandomPlaylist = {
+    id: string;
+    name: string
+}
+export type PlaylistState = {
+    loading: boolean,
+    randomPlaylist?: RandomPlaylist
+    tracks: TrackItem[]
+}
 export type PlayerState = {
     listOfTracks: TrackItem[];
     indexOfPlaying: number;

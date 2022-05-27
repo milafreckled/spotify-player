@@ -9,7 +9,7 @@ const saveToLocalStorage = (state: any) => {
     }
   };
   
-  const loadFromLocalStorage = () => {
+const loadFromLocalStorage = () => {
     try {
       const stateStr = sessionStorage.getItem('state');
       return stateStr ? JSON.parse(stateStr) : undefined;

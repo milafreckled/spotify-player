@@ -40,13 +40,6 @@ useEffect(() => {
 }, [playing, audio]);
 
 
-// useEffect(() => {
-//     if (audio.ended){
-//         console.log("audio has ended");
-//         dispatch({type: PLAY_NEXT})
-//     }
-// }, [audio.ended]);
-
 const handlePrev = () => {  
     audio.pause();
     dispatch({type: PLAY_PREV})
@@ -88,7 +81,7 @@ const fetchPlaylistData = async() => {
       })
       .then(resp => resp.json())
       .then(data => {
-          let firstTrack = data.items.filter((i: TrackItem) => i.track.preview_url !== null)[0]?.track;
+          const firstTrack = data.items.filter((i: TrackItem) => i.track.preview_url !== null)[0]?.track;
           dispatch({type: SET_PLAYLIST, tracks: data.items.filter((i: TrackItem) => i.track.preview_url !== null)});
           dispatch({type: SET_TRACK, playingTrack: firstTrack});    
       });

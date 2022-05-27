@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import React, { useEffect, useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from "react-router-dom"
 import { msConverter } from '../utils'
@@ -21,7 +21,7 @@ export default function TrackPage() {
   const history = useHistory();
 
   const fetchTrackData  = async() => {
-    let url = `${API_URL}/tracks/${trackId}`
+    const url = `${API_URL}/tracks/${trackId}`
     setLoading(true);
     await fetch(url, {
         headers: {
@@ -84,7 +84,8 @@ const handleReplay = () => {
       <div className={styles.controls}>
         <button className={styles.replayBtn} onClick={() => handleReplay()}></button>
         <button className={styles.playPrevBtn} onClick={() => handlePrev()}></button>
-        <button className={playing ? styles.pauseBlueBtn : styles.playBlueBtn} onClick={() => dispatch({type: TOGGLE_PLAYING})}></button>
+        <button className={playing ? styles.pauseBlueBtn 
+        : styles.playBlueBtn} onClick={() => dispatch({type: TOGGLE_PLAYING})}></button>
         <button className={styles.playNextBtn} onClick={() => handleNext()}></button>
         <button className={styles.shuffleBtn} onClick={() => dispatch({type: SHUFFLE})}></button>      
       </div>
